@@ -4,8 +4,8 @@ A classic game of minesweeper created with C
 
 ### Technology
 Made in C using Code::Blocks IDE with GNU GCC compiler
-                                                      
 
+### Controls
 1)A square matrix will be shown to the player. Its size will be determined by the
  level of difficulty selected by the player.
 
