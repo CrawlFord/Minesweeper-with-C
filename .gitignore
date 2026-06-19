@@ -1,0 +1,6 @@
+*.exe
+*.o
+USER_DETAILS.txt
+USER_SCORE.txt
+build/
+bin/
