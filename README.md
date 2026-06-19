@@ -1,48 +1,55 @@
 # Minesweeper Complete Edition
 
-A terminal-based Minesweeper game written in C. This project implements the core gameplay of Minesweeper, including random mine placement, difficulty selection, cell opening, flagging, scoring, win/loss detection, and file-based player records.
+A terminal-based Minesweeper game written in C. The project implements classic Minesweeper gameplay with login/sign-up functionality, difficulty selection, random mine placement, cell opening, mine flagging, score tracking, and a menu-driven terminal interface.
 
-The project was developed as a C programming project and has been cleaned for use as part of a games programming portfolio.
+This project was originally developed as a C programming project and later cleaned for use as part of a games programming placement portfolio.
 
 ## Project Overview
 
-Minesweeper is a grid-based puzzle game where the player must avoid hidden mines. The player reveals cells on the board and uses the numbers shown to identify where mines may be located.
+Minesweeper is a grid-based puzzle game where the player must avoid hidden mines. The player opens cells on the board and uses the numbers shown to work out where mines may be located.
 
-This version runs in the terminal and uses text-based input to control the game.
+This version runs in the Windows terminal and uses text-based input. The player enters coordinates and chooses whether to open a cell or flag a suspected mine.
 
 ## Features
 
 * Terminal-based Minesweeper gameplay
+* Login and sign-up system
+* Menu-driven user interface
 * Difficulty selection
 * Random mine placement
 * Cell opening and mine flagging
-* Grid-based board display
-* Win and loss condition handling
 * Score tracking
-* Login and sign-up system
-* File handling for player records
-* Menu-driven user interface
+* Win and loss condition handling
+* File handling for user records and scores
+* Windows console formatting using cursor positioning and screen clearing
 
-## How to Run
+## Development Environment
+
+This project was developed and tested as a Windows console application.
+
+* Language: C
+* IDE: Code::Blocks
+* Compiler: GNU GCC Compiler / MinGW
+* Platform: Windows terminal / Command Prompt
+
+## How to Build and Run
 
 ### Requirements
 
-* A C compiler, such as GCC
-* A terminal or command prompt
+To build the project locally, you need:
 
-### Compile
+* Code::Blocks with MinGW installed, or
+* GCC/MinGW installed separately
+
+### Compile with GCC/MinGW
+
+From the project folder, run:
 
 ```bash
-gcc src/minesweeper.c -o minesweeper
+gcc src/minesweeper.c -o minesweeper.exe
 ```
 
 ### Run
-
-On macOS/Linux:
-
-```bash
-./minesweeper
-```
 
 On Windows:
 
@@ -50,23 +57,23 @@ On Windows:
 minesweeper.exe
 ```
 
+## Platform Note
+
+This project uses Windows-specific console features such as `windows.h`, cursor positioning, screen clearing, colour changes, and `Sleep()`. Because of this, it is intended to run on Windows using GCC/MinGW or Code::Blocks with MinGW.
+
 ## How to Play
 
-The player selects a difficulty level and plays on a square grid. Each turn, the player enters a row, a column, and an action.
-
-The input format is:
+The player selects a difficulty level and plays on a square grid. Each move uses three numbers:
 
 ```text
 row column action
 ```
 
-For example:
+The first number is the row.
 
-```text
-1 3 1
-```
+The second number is the column.
 
-This means the player selected row `1`, column `3`, and chose action `1`.
+The third number is the action.
 
 Actions:
 
@@ -75,7 +82,15 @@ Actions:
 2 = Flag a suspected mine
 ```
 
-The player wins by correctly identifying the mine positions and loses if they open a cell containing a mine.
+Example:
+
+```text
+1 3 1
+```
+
+This means the player selected row `1`, column `3`, and chose to open the cell.
+
+The player loses if they open a cell containing a mine. The player wins by correctly identifying the mine positions.
 
 Full gameplay rules are available in [`docs/rules.md`](docs/rules.md).
 
@@ -93,48 +108,67 @@ minesweeper-complete-edition/
     └── minesweeper.c
 ```
 
-## C Concepts Demonstrated
+## Screenshots
 
-This project demonstrates several important C programming concepts:
+### Login Menu
+
+![Login menu](docs/screenshots/login-options.png)
+
+### Main Menu
+
+![Main menu](docs/screenshots/main-menu.png)
+
+### Difficulty Selection
+
+![Difficulty selection](docs/screenshots/difficulty-selection.png)
+
+### Gameplay
+
+![Gameplay board](docs/screenshots/gameplay-board.png)
+
+### Game Over
+
+![Game over screen](docs/screenshots/game-over.png)
+
+## C Programming Concepts Demonstrated
+
+This project demonstrates several C programming concepts:
 
 * 2D arrays for grid-based board representation
-* Loops for board display, gameplay flow, and mine checking
-* Conditional statements for game decisions
-* Functions for separating gameplay logic
+* Functions for separating game logic
+* Loops for gameplay flow and board display
+* Conditional statements for menu choices and game decisions
 * Random number generation for mine placement
-* File handling for saving player details and scores
+* File handling for user and score records
 * String handling for login and sign-up functionality
-* Input validation and menu-based interaction
-* Game state management
-* Boundary checking when working with grid coordinates
+* Input handling for player moves
+* Boundary checking for grid coordinates
+* Game state management using arrays and variables
 
-## What I Learned
+## Project Maintenance Notes
 
-This project helped me understand how to design and implement a complete terminal-based game in C. I practised breaking gameplay into smaller systems, managing game state, handling player input, saving data to files, and using arrays to represent a game board.
+The repository was cleaned and updated for portfolio presentation. The main updates include:
 
-It also helped me build confidence with debugging and structuring a larger C program.
+* Organised the source code into a `src/` folder
+* Added clearer project documentation
+* Added a separate rules document in `docs/rules.md`
+* Added screenshot support through `docs/screenshots/`
+* Removed compiled build files from the repository
+* Excluded runtime user and score files from version control
+* Added notes about the Windows/MinGW build environment
+* Updated input handling in the login/sign-up section to avoid skipped username input
 
 ## Future Improvements
 
 Possible future improvements include:
 
-* Refactoring the code into smaller source files
+* Refactoring the program into multiple source files
 * Improving input validation
-* Adding automated tests for board logic
-* Improving the scoring system
+* Replacing unsafe or outdated input functions
+* Adding automated tests for board and mine logic
+* Improving score record formatting
 * Adding a timer
 * Creating a graphical version using a game engine or graphics library
-* Replacing plain text user storage with a safer approach
-
-## Screenshots
-
-Screenshots will be added in the `docs/screenshots/` folder.
-
-Example:
-
-```markdown
-![Minesweeper gameplay screenshot](docs/screenshots/gameplay-demo.png)
-```
 
 ## License
 
