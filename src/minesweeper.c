@@ -18,10 +18,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <dos.h>
 #include <windows.h>
+#include <conio.h>
+#include <string.h>
 
 #define flush fflush(stdin)
+
+void gotoxy(int x, int y);
+void hidecursor(void);
+
+int menuoptions(void);
+int login(char x[]);
+int val_gen(int y, int g, int f);
+
+void difficulty_selection(char x[]);
+void print_board(int n, char x[]);
+void mine_generator(int n, int u, char b[], int board1[n][n], int board2[n][n], char board[n][n]);
+void play_game(int n, char x[], int mine, int u, int board1[n][n], int board2[n][n], char board[n][n]);
+
+int main_menu(int c_game);
+
+void decor_line1(void);
+void decor_line2(void);
 
 // Function to set the cursor position on the console
 void gotoxy(int x, int y)
@@ -127,11 +145,11 @@ int login(char x[])
             decor_line1();
             gotoxy(72, 10);
             printf("USERNAME: ");
-            gets(USERNAME1);
+            scanf(" %39s", USERNAME1);
             flush;
             gotoxy(72,12);
             printf("PASSWORD: ");
-            gets(PASSWORD1);
+            scanf(" %39s", PASSWORD1);
             flush;
 
 
@@ -198,11 +216,11 @@ int login(char x[])
         gotoxy(72,10);
 		flush;
 		printf("USERNAME: ");
-		gets(user.USERNAME);
+		scanf(" %39s", user.USERNAME);
 		gotoxy(72,12);
 		flush;
 		printf("Password: ");
-		gets(user.PASSWORD);
+		scanf(" %39s", user.PASSWORD);
 
 		fwrite(&user,sizeof(struct USER_DETAILS),1,fp1);
 
