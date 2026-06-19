@@ -19,6 +19,7 @@ Each move uses three numbers:
 ```text
 row column action
 ```
+There is space between each number.
 
 The first number is the row.
 
